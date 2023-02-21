@@ -30,7 +30,7 @@ Also includes wwo input data files of 100klumi.ee.out (a lumi file) and LHE_TO_R
 
 
 ### To Do:
-1.) Include tracker reconstruction effects on difermion tracks
-2.) Include displaced vertex effects on tracker measurements (if any measurable)
-3.) Add support for hadronic difermion final states 
-4.) Implement (optional) diagnostic fits of the final output
+1.) Include tracker reconstruction effects on difermion tracks  
+2.) Include displaced vertex effects on tracker measurements (if any measurable)  
+3.) Add support for hadronic difermion final states  
+4.) Implement (optional) diagnostic fits of the final output  
