@@ -22,11 +22,12 @@ GP2X.C
 ----"xsec" of type Float_t  
 --Outputs a ROOT file that has randomly generated final state particles that are boosted into the GuineaPig beam particle's momenta  
 --Includes option for beam energy spread (BES) as well as spreading in the beam vertex.  
+--Struct ParticleTrack that stores boosted particle four vector and has functions for smearing if it is measured in the ECAL or particle tracker
 
 runGP2X.sh
 -- Runs GP2X in parallel setting so you can generate millions of output events  
 
-Also includes wwo input data files of 100klumi.ee.out (a lumi file) and LHE_TO_ROOT_250.00_1_1.root (a KKMC difermion file) for running either MakeLumiRoot.C or GP2X.C . Using these files and a decent computer you should see about 100k events every 10 minutes. The code has been optimized about 20 times with various tricks that you can see in GP2X.C . It used to take days to get 100k events...
+Also includes an input data files of 100klumi.ee.out (a lumi file). There is no difermion file as they are simply too large to attach to github. Using a difermion file and a decent computer you should see about 100k events every 10 minutes. The code has been optimized about 20 times with various tricks that you can see in GP2X.C . It used to take days to get 100k events...
 
 
 ### To Do:
