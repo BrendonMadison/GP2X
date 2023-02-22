@@ -39,7 +39,7 @@ echo $LD_LIBRARY_PATH
 
 echo 'Run GP2X'
 
-MWORK=/panfs/pfs.local/work/wilson/b047m507/GP2KKMC/GP2KKMC_Run
+MWORK=/panfs/pfs.local/work/wilson/b047m507/GP2X_dev
 
 echo 'Script defines'
 echo 'FNAME:  '${FNAME}
