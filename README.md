@@ -1,4 +1,4 @@
-# GuineaPig To X (GP2X)
+# GuineaPig To X (GP2X) (readme under construction for v2)
 With X being a difermion event generator . So far confirmed works with KKMC, BHWIDE. 
 
 Takes initial beam dynamics from GuineaPig and uses them to boost the final state difermions according to their center of mass energies. Main use is for precision generation of dimuons or Bhabha scattered electrons and positrons.
