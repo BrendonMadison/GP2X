@@ -1,0 +1,63 @@
+Done using WHIZARD v3.1.2 as found at whizard.hepforge.org
+
+Installation on KU HPC was assisted by Brad Fleming of KU's HPC and CRC team.
+
+The following instructions drafted by Brendon Madison
+
+Instructions for installing WHIZARD3 locally on hpc as of 4/20 2023
+
+0.) Getting WHIZARD3 -- go to their website https://whizard.hepforge.org/
+
+0.A.) Get the tar.gz from their recent release page . One hpc type 'wget http://whizard.hepforge.org/whizard-3.1.2.tar.gz' or whatever the most recent version is
+
+0.B.) Unpack the archive with 'tar -xf whizard-3.1.2.tar.gz' and wait something like 10 minutes
+
+0.C.) You should now have a whizard-3.1.2 directory with a file called 'configure' in it. Amongst other things.
+
+1.) Getting gcc -- you need to install gcc11 or later for WHIZARD3 . On hpc 'module load compiler/gcc/11.1' or look for the latest using 'module avail'. You have to do this every time you log in or set it as your new default.
+
+2.) Getting OCAML4.1+ -- you need OCAML4.1+ to install WHIZARD3. Do not use OCAML5 as its fairly experimental.
+
+2.A.) Go to OCAML's github https://github.com/ocaml/ocaml and their releases and get OCAML4.14 by doing 'wget https://github.com/ocaml/ocaml/archive/refs/tags/4.14.0.tar.gz'
+
+2.B.) Unpack with 'tar -xf ocamlarchivehere.tar.gz'
+
+2.C.) Time to install OCAML!! Go to the newly unpacked directory and type './configure' 
+
+2.D.) It doesn't have an ending message but the last message should reference libtools. 
+
+2.E.) Use the makefile to install by typing 'make'
+
+2.F.) After make is finished you need to link the $PATH environment variable so that yourself and other programs can find and use ocaml
+
+2.G.) Edit your bashrc file by doing 'emacs -nw ~/.bashrc()' Add a new line at the bottom that 
+
+export PATH='$PATH:/absolute_path_to_your_ocaml/ocaml/bin'
+
+Written in a new line because there are quotes in the line you have to type...
+
+2.H.) Logout and back into hpc
+
+2.I.) Type 'ocaml' . If ocaml does not load then find help. It should load, run, and say something like v4.14.
+
+3.) Now you need to configure and make WHIZARD3
+
+3.A.) Outside the WHIZARD3 directory create a new directory. It will be where WHIZARD3 is installed.
+
+3.B.) Go into the unpacked WHIZARD3 directory and create a new directory called 'build' and then do 'cd build'
+
+3.C.) Its time to configure. Type '../configure  --prefix=/absolute/path/to/your/whizard3/install/' This will tell WHIZARD3 to configure the install into your install folder. If you see gcc spouting off warnings or errors it is ok. The WHIZARD3 code is poorly written in some places.
+
+3.D.) If this works then do 'make' ... it should take a while.
+
+3.E.) You should then do 'make check' but you don't need to. If you get 0 XFAIL then you are perfect. If you get XFAIL look at which files gave it. Some of the files arent mandatory so it doesnt matter if they fail
+
+3.F.) Then do 'make install' . If it passes then you should have a bunch of executable files in /absolute/path/to/your/whizard3/install/bin , one of which should be 'whizard'
+
+3.G.) You need to add these to your PATH as you did with ocaml because for some reason it doesn't do this automatically. So, again, something like
+
+export PATH='$PATH:/absolute_path_to_your_ocaml/whizard3/install/bin'
+
+3.H.) Logout and back in again. Type 'whizard'. If nothing happens then you've fudged it. 
+
+4.0.) For validation you can follow the tutorials at https://whizard.hepforge.org/tutorials/ or https://whizard.hepforge.org/trac/wiki ... copy their sindarin files and then do 'whizard nameoffile.sin' and see if you get similar results.
