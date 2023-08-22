@@ -1,4 +1,4 @@
-# GuineaPig To X (GP2X) (readme under construction for v2)
+# GuineaPig To X (GP2X) , Energy Precision Software
 With X being a difermion event generator . So far confirmed works with KKMC, BHWIDE, WHIZARD v3
 
 ## Relevant research published here: https://arxiv.org/abs/2308.09676
@@ -8,12 +8,21 @@ Takes initial beam dynamics from GuineaPig and uses them to boost the final stat
 ## Requires: 
 
 ROOT v6 , std library of C to run the .C files  
-A computing cluster with SLURM to run the .sh file if you want to run parallel jobs  
+A computing cluster with SLURM to run the .sh file if you want to run parallel jobs
 
 ## Includes:
 
 MakeLumiRoot.C
 -- Takes a GuineaPig luminosity file, typically called lumi.ee.out , and converts it into a ROOT file that can be used with GP2X.C
+
+Convolution Directory
+-- Fourier transform deconvolution method with Savitzky-Golay filtering to bring detector level measurements of particles to their respective generator level data (before detector effects).
+
+WHIZARD3 Directory
+-- Example WHIZARD sindarin files and slurm batch files.
+
+RooFit Files
+-- For doing fits and validation of the performance and energy precision of GP2X
 
 GP2X.C
 -- Takes a ROOT file of format given by MakeLumiRoot.C and a difermion ROOT file with the following tree branches:  
@@ -33,8 +42,4 @@ Also includes an input data files of 100klumi.ee.out (a lumi file). There is no 
 
 
 ### To Do:
-1.) Include tracker resolution effects on difermion tracks (FINISHED)
-2.) Include ECAL resolution effects on photons (ALMOST FINISHED)
-3.) Include displaced vertex effects on tracker measurements (if any measurable)  
-4.) Add support for hadronic difermion final states  
-5.) Implement (optional) diagnostic fits of the final output  
+1.) Add support for hadronic difermion final states  
